@@ -1,0 +1,27 @@
+<div class="ui form">
+	<div class="required field">
+		<label for="">Name</label>
+		{{input value=this.model.name placeholder="Enter name..."}}
+	</div>
+	<div class="required field">
+		<label for="">Username</label>
+		{{input value=this.model.username placeholder="Enter username..."}}
+	</div>
+	{{#if this.showPassword}}
+	  <div class="required field">
+	  	<label for="">Password</label>
+	  	{{input value=this.model.password type="text" placeholder="Enter password"}}
+	  </div>
+	{{else}}
+		<div class="required field">
+			<label for="">Password</label>
+			{{input value=this.model.password type="password" placeholder="Enter password"}}
+		</div>
+	{{/if}}
+	<div class="ui toggle checkbox">
+		{{input type="checkbox" checked=this.showPassword name="public" }}
+		<label>Show password</label>
+	</div>
+	<br><br>
+	<button class="ui inverted circular green button" {{action "register"}}><i class="save icon"></i>Register</button>
+</div>

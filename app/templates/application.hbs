@@ -19,9 +19,6 @@
 			{{/link-to}}
 			{{#if session.isAuthenticated}}
 			  <a class="item">
-			  	Code
-			  </a>
-			  <a class="item">
 			  	Socials
 			  </a>
 			  <a class="item">
@@ -36,5 +33,7 @@
 				{{/link-to}}
 			{{/if}}
 		</div>
+		<br>
+		{{outlet}}
 	</div>
 </div>

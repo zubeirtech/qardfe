@@ -13,3 +13,7 @@ h1 {
 #sub {
     font-family: 'Montserrat', sans-serif;
 }
+
+.field {
+    border-radius: 100px;
+}
