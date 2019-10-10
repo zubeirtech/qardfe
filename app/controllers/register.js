@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
+import { set } from '@ember/object';
 
 export default Controller.extend({
     toastr: service('toast'),
@@ -23,7 +24,8 @@ export default Controller.extend({
                     await this.model.save();
                 } catch (error) {
                     console.error(error);
-                    this.toastr.error('Account exists already', 'Error');                    
+                    this.toastr.error('Account exists already', 'Error');
+                    set(this.model, 'password', '');
                 }
             }
         }

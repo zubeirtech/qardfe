@@ -1,1 +1,23 @@
-{{outlet}}
+<div class="ui form">
+	<div class="field">
+		<label for="">Username</label>
+		{{input value=this.username placeholder="Enter username..."}}
+	</div>
+	{{#if this.showPassword}}
+	  <div class="required field">
+	  	<label for="">Password</label>
+	  	{{input value=this.password type="text" placeholder="Enter password"}}
+	  </div>
+	{{else}}
+	  <div class="required field">
+	  	<label for="">Password</label>
+	  	{{input value=this.password type="password" placeholder="Enter password"}}
+	  </div>
+	{{/if}}
+	<div class="ui toggle checkbox">
+		{{input type="checkbox" checked=this.showPassword name="public" }}
+		<label>Show password</label>
+	</div>
+	<br><br>
+	<button class="ui inverted circular blue button">Login</button>
+</div>
