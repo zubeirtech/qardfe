@@ -13,6 +13,7 @@ Router.map(function() {
     this.route('code');
     this.route('socials');
   });
+  this.route('scan');
 });
 
 export default Router;

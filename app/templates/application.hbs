@@ -14,9 +14,9 @@
 
 
 		<div class="ui secondary pointing menu">
-			<a class="active item">
+			{{#link-to "scan" class="item"}}
 				Scanner
-			</a>
+			{{/link-to}}
 			{{#if session.isAuthenticated}}
 			  <a class="item">
 			  	Code
@@ -28,10 +28,12 @@
 			  	Logout
 			  </a>
 			{{else}}
-			  <a class="item">
+			  {{#link-to "login" class=" item"}}
 					Login
-				</a>
-				<a class="item">Register</a>
+				{{/link-to}}
+				{{#link-to "register" class="item" }}
+					Register
+				{{/link-to}}
 			{{/if}}
 		</div>
 	</div>
