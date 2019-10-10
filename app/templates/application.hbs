@@ -1,5 +1,38 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div class="ui container">
+	<div class="ui rounded raised segment">
 
-{{outlet}}
+		<h1 class="ui header" id="header">
+			qard
+			<div class="sub header" id="sub">Your digital business card</div>
+		</h1>
+
+		{{#if session.isAuthenticated}}
+		  <h1 class="ui large header">
+		  	Hi, {{model.name}}
+		  </h1>
+		{{/if}}
+
+
+		<div class="ui secondary pointing menu">
+			<a class="active item">
+				Scanner
+			</a>
+			{{#if session.isAuthenticated}}
+			  <a class="item">
+			  	Code
+			  </a>
+			  <a class="item">
+			  	Socials
+			  </a>
+			  <a class="item">
+			  	Logout
+			  </a>
+			{{else}}
+			  <a class="item">
+					Login
+				</a>
+				<a class="item">Register</a>
+			{{/if}}
+		</div>
+	</div>
+</div>
