@@ -29,7 +29,7 @@ module.exports = function(environment) {
 
   
   if (environment === 'development') {
-    ENV.host = 'https://young-badlands-71394.herokuapp.com/';
+    ENV.host = 'https://young-badlands-71394.herokuapp.com';
     ENV['ember-simple-auth'] = {
       serverTokenEndpoint:'https://young-badlands-71394.herokuapp.com/api/token',
       routeAfterAuthentication: 'socials'
