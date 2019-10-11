@@ -42,6 +42,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+    ENV.host = 'https://young-badlands-71394.herokuapp.com';
     // Testem prefers this...
     ENV.locationType = 'none';
 
@@ -54,6 +55,7 @@ module.exports = function(environment) {
   }
   
   if (environment === 'production') {
+    ENV.host = 'https://young-badlands-71394.herokuapp.com';
     // here you can enable a production-specific feature
   }
   
