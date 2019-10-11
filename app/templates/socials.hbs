@@ -1,2 +1,51 @@
-{{outlet}}
 {{ember-load-remover}}
+<div class="ui basic right aligned segment">
+  <button class="ui circular icon black button" {{action (mut newSocial) true}}><i class="plus icon"></i></button>
+</div> 
+{{#if newSocial}}
+  <div class="ui form">
+    <div class="field">
+      <label for="">Choose your social</label>
+      {{#ui-dropdown class="search selection" allowAdditions=true selected=this.selectedSocial onChange=(action (mut this.selectedSocial)) as |execute mapper|}}
+        <div class="default text">Social Networks</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          {{#each this.socials as |social|}}
+            <div data-value="{{map-value mapper social}}" class="item">
+              {{social.name}}
+            </div>
+          {{/each}}
+        </div>
+      {{/ui-dropdown}}
+    </div>
+    {{#if (eq this.selectedSocial.type 'username')}}
+      <div class="field">
+        <label for="">Enter username</label>
+        {{input value=this.ident placeholder="Enter username"}}
+      </div>
+    {{/if}}
+    {{#if (eq this.selectedSocial.type 'link')}}
+      <div class="field">
+        <label for="">Enter url</label>
+        {{input value=this.ident placeholder="Enter profile url"}}
+      </div>
+    {{/if}}
+    {{#if (eq this.selectedSocial.type 'mail')}}
+      <div class="field">
+        <label for="">Enter mail address</label>
+        {{input value=this.ident placeholder="Enter mail"}}
+      </div> 
+    {{/if}}
+  </div> <br>
+
+  {{#if this.selectedSocial}}
+    <button class="ui circular secondary button" {{action "new" this.selectedSocial}}><i class="save icon"></i> Save</button> 
+  {{/if}}
+{{else}}
+  {{#ui-accordion class="styled"}}
+    {{#each-in model.social as |social url|}}
+      <Social @key={{social}} @value={{url}} />
+    {{/each-in}}
+  {{/ui-accordion}}
+{{/if}}
+

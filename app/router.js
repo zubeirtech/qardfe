@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('scan');
   this.route('socials');
   this.route('code');
+  this.route('settings');
 });
 
 export default Router;
