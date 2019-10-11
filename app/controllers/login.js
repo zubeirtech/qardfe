@@ -9,8 +9,13 @@ export default Controller.extend({
     actions: {
         authenticate() {
             if(this.password && this.username) {
-                this.session.authenticate('authenticator:oauth2', this.username, this.password).then(() => window.location.href = "/socials").catch(reason => set(this, 'errorMessage', reason.error || reason))
+                set(this, 'loader', true);
+                this.session.authenticate('authenticator:oauth2', this.username, this.password).then(() => {
+                    set(this, 'loader', false);
+                    window.location.href = "/socials"
+                }).catch(reason => set(this, 'errorMessage', reason.error || reason))
             } else {
+                set(this, 'loader', false);
                 this.toastr.error('Please fill out all fields', 'Error');
             }
         }

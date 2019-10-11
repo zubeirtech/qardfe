@@ -20,10 +20,14 @@
 		<label>Show password</label>
 	</div>
 	<br><br>
-	<div class="ui basic circular animated fade secondary button" tabindex="0" {{action "authenticate"}}>
-		<div class="visible content">Login</div>
-		<div class="hidden content">
-			<i class="key icon"></i>
-		</div>
-	</div>
+  {{#if loader}}
+    <div class="ui active inline loader"></div>
+  {{else}}
+	  <div class="ui basic circular animated fade secondary button" tabindex="0" {{action "authenticate"}}>
+	  	<div class="visible content">Login</div>
+	  	<div class="hidden content">
+	  		<i class="key icon"></i>
+	  	</div>
+	  </div>
+  {{/if}}
 </div>
