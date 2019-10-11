@@ -29,9 +29,9 @@ module.exports = function(environment) {
 
   
   if (environment === 'development') {
-    ENV.host = 'http://localhost:3000';
+    ENV.host = 'https://young-badlands-71394.herokuapp.com/';
     ENV['ember-simple-auth'] = {
-      serverTokenEndpoint:'http://localhost:3000/api/token',
+      serverTokenEndpoint:'https://young-badlands-71394.herokuapp.com/api/token',
       routeAfterAuthentication: 'socials'
     };
     // ENV.APP.LOG_RESOLVER = true;
