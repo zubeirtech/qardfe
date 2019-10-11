@@ -9,9 +9,10 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('login');
   this.route('register');
-  this.route('u' ,function() {
+  this.route('u',function() {
     this.route('code');
     this.route('socials');
+    this.route('info', {path: '/:user_id/socials'});
   });
   this.route('scan');
   this.route('socials');

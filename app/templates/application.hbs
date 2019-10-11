@@ -1,18 +1,15 @@
 {{ember-load-remover}}
 <div class="ui container">
 	<div class="ui rounded raised segment">
-
 		<h1 class="ui header" id="header">
 			qard
 			<div class="sub header" id="sub">Your digital business card</div>
 		</h1>
-
 		{{#if session.isAuthenticated}}
 		  <h1 class="ui large header">
 		  	Hi, {{model.name}}
 		  </h1>
 		{{/if}}
-
 		<div class="ui secondary pointing menu">
 			{{#link-to "scan" class="item"}}
 				Scanner
@@ -24,7 +21,7 @@
 			  {{#link-to "socials" class="item"}}
 					Socials
 				{{/link-to}}
-				{{#link-to "settings" class="item"}}
+				{{#link-to "u.info" this.model class="item"}}
 					Settings
 				{{/link-to}}
 			{{else}}
