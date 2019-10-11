@@ -23,7 +23,10 @@ export default Controller.extend({
             if(this.checklist(this.model)) {
                 try {
                     await this.model.save();
-                    this.get('session').authenticate('authenticator:oauth2', this.model.username, this.model.password).catch((reason) => {
+                    this.get('session').authenticate('authenticator:oauth2', this.model.username, this.model.password).then(() => {
+                        window.location.href = "/socials"
+                    })
+                    .catch((reason) => {
                         this.set('errorMessage', reason.error || reason);
                         console.log(reason.error || reason)
                     });
