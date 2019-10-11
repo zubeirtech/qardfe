@@ -4,6 +4,7 @@ import { set } from '@ember/object';
 
 export default Controller.extend({
     toastr: service('toast'),
+    session: service(),
 
     checklist(obj) {
         if (
@@ -22,6 +23,10 @@ export default Controller.extend({
             if(this.checklist(this.model)) {
                 try {
                     await this.model.save();
+                    this.get('session').authenticate('authenticator:oauth2', this.model.username, this.model.password).catch((reason) => {
+                        this.set('errorMessage', reason.error || reason);
+                        console.log(reason.error || reason)
+                    });
                 } catch (error) {
                     console.error(error);
                     this.toastr.error('Account exists already', 'Error');

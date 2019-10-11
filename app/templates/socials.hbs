@@ -38,6 +38,8 @@
     {{/if}}
   </div> <br>
 
+  <button class="ui circular icon basic black button" {{action (mut newSocial) false}}><i class="angle left icon"></i></button>
+
   {{#if this.selectedSocial}}
     <button class="ui circular secondary button" {{action "new" this.selectedSocial}}><i class="save icon"></i> Save</button> 
   {{/if}}
