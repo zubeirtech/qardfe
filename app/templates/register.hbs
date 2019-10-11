@@ -1,3 +1,4 @@
+{{ember-load-remover}}
 <div class="ui form">
 	<div class="required field">
 		<label for="">Name</label>
@@ -23,5 +24,10 @@
 		<label>Show password</label>
 	</div>
 	<br><br>
-	<button class="ui inverted circular green button" {{action "register"}}><i class="save icon"></i>Register</button>
+	<div class="ui basic circular animated fade secondary button" tabindex="0" {{action "register"}}>
+		<div class="visible content">Register</div>
+		<div class="hidden content">
+			<i class="save icon"></i>	
+		</div>
+	</div>
 </div>

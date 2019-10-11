@@ -1,15 +1,16 @@
+{{ember-load-remover}}
 <div class="ui form">
 	<div class="field">
 		<label for="">Username</label>
 		{{input value=this.username placeholder="Enter username..."}}
 	</div>
 	{{#if this.showPassword}}
-	  <div class="required field">
+	  <div class="field">
 	  	<label for="">Password</label>
 	  	{{input value=this.password type="text" placeholder="Enter password"}}
 	  </div>
 	{{else}}
-	  <div class="required field">
+	  <div class="field">
 	  	<label for="">Password</label>
 	  	{{input value=this.password type="password" placeholder="Enter password"}}
 	  </div>
@@ -19,5 +20,10 @@
 		<label>Show password</label>
 	</div>
 	<br><br>
-	<button class="ui inverted circular blue button">Login</button>
+	<div class="ui basic circular animated fade secondary button" tabindex="0" {{action "authenticate"}}>
+		<div class="visible content">Login</div>
+		<div class="hidden content">
+			<i class="key icon"></i>
+		</div>
+	</div>
 </div>

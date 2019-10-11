@@ -1,3 +1,4 @@
+{{ember-load-remover}}
 <div class="ui container">
 	<div class="ui rounded raised segment">
 
@@ -12,20 +13,22 @@
 		  </h1>
 		{{/if}}
 
-
 		<div class="ui secondary pointing menu">
 			{{#link-to "scan" class="item"}}
 				Scanner
 			{{/link-to}}
 			{{#if session.isAuthenticated}}
-			  <a class="item">
-			  	Socials
-			  </a>
-			  <a class="item">
+			  {{#link-to "index" class="item"}}
+					QR-code
+				{{/link-to}}
+			  {{#link-to "socials" class="item"}}
+					Socials
+				{{/link-to}}
+			  <a class="item" {{action "invalidate"}}>
 			  	Logout
 			  </a>
 			{{else}}
-			  {{#link-to "login" class=" item"}}
+			  {{#link-to "login" class="item"}}
 					Login
 				{{/link-to}}
 				{{#link-to "register" class="item" }}

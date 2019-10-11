@@ -15,6 +15,13 @@
     {{content-for "head-footer"}}
   </head>
   <body>
+    <div class="ember-load-indicator">
+      <div class="ui active center inline dimmer">
+        <div id="spinner">
+        </div>
+        <h1 class="ui white header" id="header" style="color: white">qard</h1>
+      </div>
+    </div>
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>

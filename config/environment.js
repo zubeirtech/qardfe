@@ -6,6 +6,10 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    'ember-load': {
+      // This is the default value, if you don't set this option
+      loadingIndicatorClass: 'ember-load-indicator'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -23,8 +27,13 @@ module.exports = function(environment) {
     }
   };
 
+  
   if (environment === 'development') {
     ENV.host = 'http://localhost:3000';
+    ENV['ember-simple-auth'] = {
+      serverTokenEndpoint:'http://localhost:3000/api/token',
+      routeAfterAuthentication: 'socials'
+    };
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -43,10 +52,11 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
   }
-
+  
   if (environment === 'production') {
     // here you can enable a production-specific feature
   }
+  
 
   return ENV;
 };

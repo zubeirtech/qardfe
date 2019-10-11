@@ -14,6 +14,8 @@ Router.map(function() {
     this.route('socials');
   });
   this.route('scan');
+  this.route('socials');
+  this.route('code');
 });
 
 export default Router;
