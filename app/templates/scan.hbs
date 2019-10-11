@@ -1,1 +1,9 @@
-{{outlet}}
+<CodeScanner @onScanSuccess={{action (mut result)}} />
+<br>
+<br>
+{{#if result.text}}
+  <h2 class="ui header" id="header">Success!</h2>
+  <div class="ui basic button">
+    <a href={{result.text}} target="_blank" rel="noopener">Visit</a>
+  </div>
+{{/if}}
