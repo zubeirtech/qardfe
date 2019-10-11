@@ -16,16 +16,20 @@ export default Controller.extend({
             {
                 name: 'Instagram',
                 type: 'username',
+                url: 'https://www.instagram.com/',
+                root: 'https://www.instagram.com/',
                 image: 'https://www.freepnglogos.com/uploads/instagram-logos-png-images-free-download-2.png',
             },
             {
                 name: 'Twitter',
                 type: 'username',
+                url: 'https://twitter.com/',
+                root: 'https://twitter.com/',
                 image: 'http://pngimg.com/uploads/twitter/twitter_PNG3.png'
             },
             {
                 name: 'facebook',
-                type: 'username',
+                type: 'link',
                 image: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png'
             },
             {
@@ -35,17 +39,21 @@ export default Controller.extend({
             },
             {
                 name: 'YouTube',
-                type: 'username',
+                type: 'link',
                 image: 'https://png.pngtree.com/element_our/sm/20180626/sm_5b321c9877382.png'
             },
             {
                 name: 'Pinterest',
                 type: 'username',
+                url: 'https://pinterest.com/',
+                root: 'https://pinterest.com/',
                 image: 'https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c52e.png',
             },
             {
                 name: 'GitHub',
                 type: 'username',
+                url: 'https://github.com/',
+                root: 'https://github.com/',
                 image: 'https://image.flaticon.com/icons/png/512/25/25231.png'
             },
             {
@@ -60,7 +68,12 @@ export default Controller.extend({
         async new(social) {
             try {
                 if(this.ident) {
-                    social.identification = this.ident;
+                    if(social.type === 'username') {
+                        social.url= social.root + this.ident;
+                    } else {
+                        social.url = this.ident;
+                    }
+                    social.identification = this.ident
                     this.model.socials.pushObject(social);
                     this.model.save();
                     set(this, 'ident', '')
@@ -73,8 +86,13 @@ export default Controller.extend({
             }
         },
 
-        async update() {
+        async update(social) {
             try {
+                if(social.type === 'username'){
+                    social.url = social.root + social.identification
+                } else {
+                    social.url = social.identification
+                }
                 this.model.save();
             } catch (error) {
                 console.error(error);
