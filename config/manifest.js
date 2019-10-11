@@ -5,8 +5,8 @@ module.exports = function(/* environment, appConfig */) {
   // supported properties
 
   return {
-    name: "qardfe",
-    short_name: "qardfe",
+    name: "qard-The Digital Business Card",
+    short_name: "qard",
     description: "",
     start_url: "/",
     display: "standalone",
