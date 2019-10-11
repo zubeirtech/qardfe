@@ -1,6 +1,14 @@
 <div class="title">
-    
+  <img class="ui avatar image" src={{model.image}}>
+  <span>{{model.name}}</span>
 </div>
 <div class="content">
-
+	<div class="ui form">
+		<div class="field">
+			{{input value=model.identification focusOut=(action "select")}}
+		</div>
+		<div class="field">
+	    <div class="ui inverted red circular icon button" {{action "delete"}}><i class="trash icon"></i></div>
+		</div>
+	</div>
 </div> 

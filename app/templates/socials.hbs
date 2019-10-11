@@ -45,9 +45,9 @@
   {{/if}}
 {{else}}
   {{#ui-accordion class="styled"}}
-    {{#each-in model.social as |social url|}}
-      <Social @key={{social}} @value={{url}} />
-    {{/each-in}}
+    {{#each this.model.socials as |social|}}
+      <Social @model={{social}} @select={{action "update"}} @delete={{action "delete" social}}/>
+    {{/each}}
   {{/ui-accordion}}
 {{/if}}
 

@@ -71,6 +71,23 @@ export default Controller.extend({
             } catch (error) {
                 console.error(error);
             }
+        },
+
+        async update() {
+            try {
+                this.model.save();
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
+        async delete(social) {
+            try {
+                this.model.socials.removeObject(social);
+                this.model.save();
+            } catch (error) {
+                console.error(error);
+            }
         }
     }
 });
