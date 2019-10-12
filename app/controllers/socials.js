@@ -34,7 +34,9 @@ export default Controller.extend({
             },
             {
                 name: 'Email',
-                type: 'mail',
+                type: 'username',
+                url: 'mailto:',
+                root: 'mailto:',
                 image: 'https://www.freepnglogos.com/uploads/black-email-logo-png-0.png'
             },
             {
