@@ -62,6 +62,13 @@ export default Controller.extend({
                 name: 'Website',
                 type: 'link',
                 image: 'https://png.pngtree.com/svg/20170710/url_650537.png',
+            },
+            {
+                name: 'Telephone',
+                type: 'username',
+                url: 'tel:',
+                root: 'tel:',
+                image: 'https://p7.hiclipart.com/preview/831/26/459/telephone-call-computer-icons-symbol-phone-png.jpg'
             }
         ]
     },
