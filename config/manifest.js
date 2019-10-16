@@ -7,7 +7,7 @@ module.exports = function(/* environment, appConfig */) {
   return {
     name: "qard-The Digital Business Card",
     short_name: "qard",
-    description: "",
+    description: "Be able to carry around your socials conveniently for others to pick up by simply scanning your personal qr-code",
     start_url: "/",
     display: "standalone",
     background_color: "#000000",
