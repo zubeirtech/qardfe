@@ -8,6 +8,7 @@ export default Controller.extend({
 
     actions: {
         authenticate() {
+            this.toastr.info('Server (heroku) is starting up, this might take few seconds', 'Important Info');
             if(this.password && this.username) {
                 set(this, 'loader', true);
                 this.session.authenticate('authenticator:oauth2', this.username, this.password).then(() => {
